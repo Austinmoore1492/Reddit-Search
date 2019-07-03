@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Reddit</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <div id="message"></div>
+    <form id="searchForm">
+      <h1>Search Reddit</h1>
+      <input id="searchInput" type="text" placeholder="Search">
+      <div class="sortByDiv">
+        <label id="sortByLabel">Sort By: </label>
+        <input id="relevance" name="sortBy" type="radio" value="relevance" checked>
+        <label>Relevance</label>
+        <input id="new" name="sortBy" type="radio" value="new">
+        <label>Latest</label>
+      </div>
+      <input id="guessBtn" type="submit" value="Submit">
+
+    </form>
+    <div id="results"></div>
+  </div>
+  <script src="main.js"></script>
+</body>
+
+</html>
