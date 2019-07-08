@@ -17,9 +17,20 @@ function searchReddit(e) {
     search(searchTerm, sortBy).then(results => {
       let output = '<div class="card-column">';
       results.forEach(post => {
-        output += `<div class="card-body">
-                    <h5>${truncateText(post.title, 100)}</h5> 
-                    <p>${truncateText(post.selftext, 100)}</p>
+        //check for image
+        let image = post.preview
+          ? post.preview.images[0].source.url
+          : "https://cdn.comparitech.com/wp-content/uploads/2017/08/reddit-1.jpg";
+        output += `<div class="card">
+                    <img class="img-top" src="${image}" alt="reddit Image">
+                    <div class="card-body">
+                      <h5>${truncateText(post.title, 100)}</h5> 
+                      <p>${truncateText(post.selftext, 100)}</p>
+                      <a href="${
+                        post.url
+                      }" target="_blank" class="readMore">Read More</a>
+                      <hr>
+                    </div>
                    </div>`;
       });
       output += "</div>";
