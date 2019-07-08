@@ -58,4 +58,3 @@ function truncateText(text, limit) {
   if (short == -1) return text;
   return text.substring(0, short);
 }
-
