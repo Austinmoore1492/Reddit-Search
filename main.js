@@ -1,6 +1,7 @@
 const searchForm = document.getElementById("searchForm");
 const searchInput = document.getElementById("searchInput");
 const message = document.getElementById("message");
+const resultMessage = document.getElementById("resultMessage");
 
 searchForm.addEventListener("submit", searchReddit);
 
@@ -11,9 +12,10 @@ function searchReddit(e) {
 
   if (searchTerm === "") {
     message.innerHTML = "Please add a search term";
-    message.style.color = "red";
+    message.style.color = "#bd0000";
     setTimeout(() => message.remove(), 2000);
   } else {
+    resultSearchTerm(searchTerm);
     search(searchTerm, sortBy).then(results => {
       let output = '<div class="card-column">';
       results.forEach(post => {
@@ -54,4 +56,9 @@ function truncateText(text, limit) {
   const short = text.indexOf(" ", limit);
   if (short == -1) return text;
   return text.substring(0, short);
+}
+
+function resultSearchTerm(searchTerm){
+  resultMessage.innerHTML = `Showing results for ${searchTerm}`;
+  resultMessage.style.color = "#00a600";
 }
