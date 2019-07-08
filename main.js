@@ -15,7 +15,8 @@ function searchReddit(e) {
     message.style.color = "#bd0000";
     setTimeout(() => message.remove(), 2000);
   } else {
-    resultSearchTerm(searchTerm);
+    resultMessage.innerHTML = `Showing results for ${searchTerm}`;
+    resultMessage.style.color = "#00a600";
     search(searchTerm, sortBy).then(results => {
       let output = '<div class="card-column">';
       results.forEach(post => {
@@ -58,7 +59,3 @@ function truncateText(text, limit) {
   return text.substring(0, short);
 }
 
-function resultSearchTerm(searchTerm){
-  resultMessage.innerHTML = `Showing results for ${searchTerm}`;
-  resultMessage.style.color = "#00a600";
-}
